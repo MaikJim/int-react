@@ -7,6 +7,7 @@ import { TodoItem } from "../Components/TodoItem";
 import { TodoForm } from "../Components/TodoForm";
 import { CreateTodoButton } from "../Components/CreateTodoButton";
 import { Modal } from "../Components/Modal";
+import { TodoHeader } from "../Components/TodoHeader";
 
 function AppUI() {
 	const {
@@ -19,12 +20,13 @@ function AppUI() {
 		setOpenModal,
 		totalTodos,
 		completedTodos,
-		searchValue, 
+		searchValue,
 		setSearchValue } =
 		React.useContext(TodoContext);
 
 	return (
 		<React.Fragment>
+			<TodoHeader>
 			<TodoCounter
 				totalTodos= {totalTodos}
 				completedTodos = {completedTodos}
@@ -33,6 +35,8 @@ function AppUI() {
 				searchValue = {searchValue} 
 				setSearchValue = {setSearchValue}
 			/>
+			</TodoHeader>
+
 			<TodoList>
 				{error && <p>Desespérate, hubo un error...</p>}
 				{loading && <p>Estamos cargando, no desesperes...</p>}
